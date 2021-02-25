@@ -1,65 +1,40 @@
 <template>
-  <div class="container">
+  <div>
     <div>
-      <Logo />
-      <h1 class="title">composition-api-typescript-form</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      {{ form }}
     </div>
+    <MyInput v-model="form.text" />
+    <!-- <MyTextarea v-model="longText" />
+    <MyCheckbox v-model="checked" />
+    <MyRadio v-model="picked" />
+    <MySelect :options="options" v-model="selected" /> -->
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, reactive } from '@nuxtjs/composition-api'
 
-export default Vue.extend({})
+interface State {
+  text: string
+  longText: string
+  checked: boolean
+  picked: boolean
+  selected: boolean
+}
+
+export default defineComponent({
+  setup() {
+    const form = reactive<State>({
+      text: '',
+      longText: '',
+      checked: false,
+      picked: false,
+      selected: false,
+    })
+
+    return {
+      form,
+    }
+  },
+})
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

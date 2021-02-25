@@ -4,8 +4,8 @@
       {{ form }}
     </div>
     <MyInput v-model="form.text" />
-    <!-- <MyTextarea v-model="longText" />
-    <MyCheckbox v-model="checked" />
+    <MyTextarea v-model="form.longText" />
+    <!-- <MyCheckbox v-model="checked" />
     <MyRadio v-model="picked" />
     <MySelect :options="options" v-model="selected" /> -->
   </div>
@@ -25,8 +25,8 @@ interface State {
 export default defineComponent({
   setup() {
     const form = reactive<State>({
-      text: '',
-      longText: '',
+      text: 'init text',
+      longText: 'init long text',
       checked: false,
       picked: false,
       selected: false,

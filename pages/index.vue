@@ -5,8 +5,8 @@
     </div>
     <MyInput v-model="form.text" />
     <MyTextarea v-model="form.longText" />
-    <!-- <MyCheckbox v-model="checked" />
-    <MyRadio v-model="picked" />
+    <MyCheckbox v-model="form.checked">Option</MyCheckbox>
+    <!-- <MyRadio v-model="picked" />
     <MySelect :options="options" v-model="selected" /> -->
   </div>
 </template>

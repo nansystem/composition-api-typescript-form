@@ -15,7 +15,7 @@ export default defineComponent({
   emits: ['input'],
   setup(_, ctx) {
     const handleInput = (e: Event) => {
-      const target = e.target as HTMLInputElement
+      const target = e.target as HTMLTextAreaElement
       ctx.emit('input', target.value)
     }
 
